@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milk &amp; Crumb — Small-batch cakes, baked in Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#2B1810;
+    --espresso-light:#3D2418;
+    --cream:#F6EDE0;
+    --rose:#E8998D;
+    --rose-deep:#C97164;
+    --gold:#C9A24B;
+    --line:#5A3825;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--espresso);
+    color:var(--cream);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.1;
+  }
+  a{color:inherit;}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+
+  /* NAV */
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:28px 24px; max-width:960px; margin:0 auto;
+  }
+  .brand{font-family:'Fraunces', serif; font-size:1.3rem; font-weight:600;}
+  .brand em{font-style:italic; color:var(--rose);}
+  nav a.cta{
+    background:var(--rose); color:var(--espresso); font-weight:600;
+    padding:10px 20px; border-radius:2px; text-decoration:none;
+    font-size:0.9rem; letter-spacing:0.02em;
+  }
+
+  /* HERO */
+  header.hero{
+    padding:60px 24px 90px;
+    max-width:960px; margin:0 auto;
+    border-bottom:1px solid var(--line);
+  }
+  header.hero .kicker{
+    color:var(--gold); font-size:0.95rem; margin-bottom:18px;
+  }
+  header.hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    max-width:11ch;
+    margin-bottom:24px;
+  }
+  header.hero h1 i{font-style:italic; color:var(--rose);}
+  header.hero p.lede{
+    font-size:1.15rem; max-width:46ch; color:#D8C7B4; margin-bottom:32px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--rose); color:var(--espresso); font-weight:600;
+    padding:14px 28px; border-radius:2px; text-decoration:none; display:inline-block;
+  }
+  .btn-secondary{
+    border:1px solid var(--line); color:var(--cream);
+    padding:14px 28px; border-radius:2px; text-decoration:none; display:inline-block;
+  }
+
+  /* MENU */
+  section.menu{padding:80px 24px; max-width:960px; margin:0 auto; border-bottom:1px solid var(--line);}
+  section.menu h2{font-size:2rem; margin-bottom:8px;}
+  section.menu .sub{color:#B9A48D; margin-bottom:48px;}
+  .menu-list{display:flex; flex-direction:column;}
+  .menu-item{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:22px 0; border-bottom:1px dashed var(--line);
+    gap:24px;
+  }
+  .menu-item:last-child{border-bottom:none;}
+  .menu-item .name{font-family:'Fraunces', serif; font-size:1.2rem; font-weight:600;}
+  .menu-item .desc{color:#B9A48D; font-size:0.95rem; margin-top:4px; max-width:48ch;}
+  .menu-item .price{color:var(--gold); font-weight:600; white-space:nowrap; font-size:1.05rem;}
+
+  /* HOW IT WORKS */
+  section.steps{padding:80px 24px; max-width:960px; margin:0 auto; border-bottom:1px solid var(--line);}
+  section.steps h2{font-size:2rem; margin-bottom:48px;}
+  .step-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .step{border-top:2px solid var(--rose); padding-top:16px;}
+  .step .num{font-family:'Fraunces', serif; font-style:italic; color:var(--gold); font-size:1.1rem;}
+  .step h3{font-size:1.1rem; margin:8px 0 8px; font-weight:600;}
+  .step p{color:#B9A48D; font-size:0.95rem;}
+
+  /* ORDER FORM SECTION */
+  section.order{padding:80px 24px; max-width:960px; margin:0 auto;}
+  section.order h2{font-size:2rem; margin-bottom:12px;}
+  section.order p{color:#B9A48D; max-width:52ch; margin-bottom:36px;}
+  .form-embed{
+    background:var(--espresso-light); border:1px solid var(--line);
+    border-radius:4px; overflow:hidden; min-height:400px;
+  }
+  .form-embed iframe{width:100%; border:none; display:block; min-height:600px;}
+  .form-fallback{
+    padding:48px 24px; text-align:center; color:#B9A48D;
+  }
+
+  footer{
+    padding:48px 24px 64px; max-width:960px; margin:0 auto;
+    border-top:1px solid var(--line); color:#8A7460; font-size:0.9rem;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+  footer a{text-decoration:underline;}
+
+  @media (max-width:680px){
+    .step-grid{grid-template-columns:1fr;}
+    .menu-item{flex-direction:column; gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Milk <em>&amp;</em> Crumb</div>
+  <a class="cta" href="#order">Order a cake</a>
+</nav>
+
+<header class="hero">
+  <div class="kicker">Home-baked in Singapore · Weekend collection &amp; islandwide delivery</div>
+  <h1>Small-batch cakes, made <i>slowly</i>, by hand.</h1>
+  <p class="lede">Every cake is baked to order in small batches — no freezers, no shortcuts. Pick a flavour, tell us the date, and we'll have it ready for you.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#order">Place an order</a>
+    <a class="btn-secondary" href="#menu">See the menu</a>
+  </div>
+</header>
+
+<section class="menu" id="menu">
+  <h2>This week's flavours</h2>
+  <p class="sub">Update this list every week — availability changes with what's in season.</p>
+  <div class="menu-list">
+    <div class="menu-item">
+      <div>
+        <div class="name">Gula Melaka Butter Cake</div>
+        <div class="desc">Dense butter cake laced with palm sugar and a hint of pandan.</div>
+      </div>
+      <div class="price">$48 · 6"</div>
+    </div>
+    <div class="menu-item">
+      <div>
+        <div class="name">Earl Grey &amp; Fig</div>
+        <div class="desc">Tea-infused sponge, mascarpone cream, roasted fresh figs.</div>
+      </div>
+      <div class="price">$58 · 6"</div>
+    </div>
+    <div class="menu-item">
+      <div>
+        <div class="name">Dark Chocolate Sea Salt</div>
+        <div class="desc">70% dark chocolate ganache, Maldon salt, espresso crumb base.</div>
+      </div>
+      <div class="price">$55 · 6"</div>
+    </div>
+    <div class="menu-item">
+      <div>
+        <div class="name">Classic Vanilla Bean</div>
+        <div class="desc">Vanilla chiffon, whipped Chantilly, seasonal fruit.</div>
+      </div>
+      <div class="price">$45 · 6"</div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <h2>How ordering works</h2>
+  <div class="step-grid">
+    <div class="step">
+      <div class="num">01</div>
+      <h3>Fill in the order form</h3>
+      <p>Pick your flavour, size, and the date you need it by. Takes about a minute.</p>
+    </div>
+    <div class="step">
+      <div class="num">02</div>
+      <h3>We confirm by WhatsApp</h3>
+      <p>You'll hear back within a day to confirm availability, price, and payment via PayNow.</p>
+    </div>
+    <div class="step">
+      <div class="num">03</div>
+      <h3>Collect or get it delivered</h3>
+      <p>Self-collect from our kitchen, or opt for islandwide delivery on your chosen date.</p>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <h2>Place your order</h2>
+  <p>Orders close 3 days before your collection or delivery date, to give us time to bake everything fresh.</p>
+
+  <div class="form-embed">
+    <!--
+      Replace the src below with your own Google Form's embed link:
+      In Google Forms, click Send → the <> (embed HTML) icon → copy the src URL
+      from the iframe code it gives you, and paste it here.
+    -->
+    <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true">
+      Loading order form…
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Milk &amp; Crumb, Singapore</div>
+  <div>WhatsApp <a href="https://wa.me/6500000000">+65 XXXX XXXX</a> · <a href="mailto:hello@example.com">hello@example.com</a></div>
+</footer>
+
+</body>
+</html>
