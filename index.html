@@ -3,25 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milk &amp; Crumb — Small-batch cakes, baked in Singapore</title>
+<title>Heritage House — Small-batch cakes, baked in Singapore</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --espresso:#2B1810;
-    --espresso-light:#3D2418;
-    --cream:#F6EDE0;
-    --rose:#E8998D;
-    --rose-deep:#C97164;
-    --gold:#C9A24B;
-    --line:#5A3825;
+    --bg:#F4F7EC;
+    --panel:#EAF0DE;
+    --forest:#3E5A3B;
+    --moss:#5C7A52;
+    --moss-deep:#496341;
+    --blush:#DE9A72;
+    --blush-deep:#C97F57;
+    --line:#CBD9BA;
+    --ink:#33402C;
+    --ink-soft:#6B7A5E;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--espresso);
-    color:var(--cream);
+    background:var(--bg);
+    color:var(--ink);
     font-family:'Work Sans', sans-serif;
     line-height:1.6;
   }
@@ -29,136 +32,200 @@
     font-family:'Fraunces', serif;
     font-weight:600;
     line-height:1.1;
+    color:var(--forest);
   }
   a{color:inherit;}
-  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+  svg.leaf{display:inline-block; vertical-align:middle;}
 
   /* NAV */
   nav{
     display:flex; justify-content:space-between; align-items:center;
-    padding:28px 24px; max-width:960px; margin:0 auto;
+    padding:26px 24px 10px; max-width:960px; margin:0 auto;
   }
-  .brand{font-family:'Fraunces', serif; font-size:1.3rem; font-weight:600;}
-  .brand em{font-style:italic; color:var(--rose);}
+  .brand{display:flex; flex-direction:column; line-height:1;}
+  .brand .word{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:600;
+    font-size:1.5rem; color:var(--moss-deep);
+  }
+  .brand svg{width:110px; height:14px; margin-top:2px;}
   nav a.cta{
-    background:var(--rose); color:var(--espresso); font-weight:600;
-    padding:10px 20px; border-radius:2px; text-decoration:none;
+    background:var(--blush); color:#3A2416; font-weight:600;
+    padding:10px 22px; border-radius:999px; text-decoration:none;
     font-size:0.9rem; letter-spacing:0.02em;
   }
 
   /* HERO */
   header.hero{
-    padding:60px 24px 90px;
+    position:relative; overflow:hidden;
+    padding:64px 24px 96px;
     max-width:960px; margin:0 auto;
     border-bottom:1px solid var(--line);
   }
+  header.hero .bg-leaf{
+    position:absolute; top:-40px; right:-40px; width:340px; height:340px;
+    opacity:0.12; transform:rotate(12deg); z-index:0;
+  }
+  header.hero .inner{position:relative; z-index:1;}
   header.hero .kicker{
-    color:var(--gold); font-size:0.95rem; margin-bottom:18px;
+    color:var(--blush-deep); font-size:0.95rem; margin-bottom:18px;
+    font-weight:600; letter-spacing:0.02em;
   }
   header.hero h1{
     font-size:clamp(2.6rem, 6vw, 4.2rem);
-    max-width:11ch;
+    max-width:12ch;
     margin-bottom:24px;
   }
-  header.hero h1 i{font-style:italic; color:var(--rose);}
+  header.hero h1 i{font-style:italic; color:var(--blush-deep);}
   header.hero p.lede{
-    font-size:1.15rem; max-width:46ch; color:#D8C7B4; margin-bottom:32px;
+    font-size:1.15rem; max-width:46ch; color:var(--ink-soft); margin-bottom:32px;
   }
   .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
   .btn-primary{
-    background:var(--rose); color:var(--espresso); font-weight:600;
-    padding:14px 28px; border-radius:2px; text-decoration:none; display:inline-block;
+    background:var(--moss); color:#FBFCF6; font-weight:600;
+    padding:14px 28px; border-radius:999px; text-decoration:none; display:inline-block;
   }
   .btn-secondary{
-    border:1px solid var(--line); color:var(--cream);
-    padding:14px 28px; border-radius:2px; text-decoration:none; display:inline-block;
+    border:1px solid var(--moss); color:var(--forest);
+    padding:14px 28px; border-radius:999px; text-decoration:none; display:inline-block;
   }
 
   /* MENU */
   section.menu{padding:80px 24px; max-width:960px; margin:0 auto; border-bottom:1px solid var(--line);}
+  section.menu > .head{margin-bottom:44px;}
   section.menu h2{font-size:2rem; margin-bottom:8px;}
-  section.menu .sub{color:#B9A48D; margin-bottom:48px;}
-  .menu-list{display:flex; flex-direction:column;}
-  .menu-item{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:22px 0; border-bottom:1px dashed var(--line);
-    gap:24px;
+  section.menu .sub{color:var(--ink-soft);}
+
+  .menu-category{
+    display:flex; align-items:center; gap:8px;
+    font-family:'Fraunces', serif; font-style:italic; font-weight:600;
+    color:var(--moss-deep); font-size:1.05rem;
+    margin:40px 0 18px;
   }
-  .menu-item:last-child{border-bottom:none;}
-  .menu-item .name{font-family:'Fraunces', serif; font-size:1.2rem; font-weight:600;}
-  .menu-item .desc{color:#B9A48D; font-size:0.95rem; margin-top:4px; max-width:48ch;}
-  .menu-item .price{color:var(--gold); font-weight:600; white-space:nowrap; font-size:1.05rem;}
+  .menu-category:first-of-type{margin-top:0;}
+  .menu-category svg{width:16px; height:16px;}
+
+  .cake-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;}
+  .cake-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .cake-photo{
+    aspect-ratio:16/10;
+    background:
+      repeating-linear-gradient(135deg, rgba(92,122,82,0.08) 0 10px, transparent 10px 20px),
+      var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--moss); opacity:0.6;
+  }
+  .cake-photo svg{width:34px; height:34px;}
+  /* When you have a real photo, replace the div above with:
+     <img src="your-cake-photo.jpg" alt="Cake name" style="width:100%;aspect-ratio:16/10;object-fit:cover;"> */
+  .cake-info{padding:18px 20px 22px;}
+  .cake-info .top{display:flex; justify-content:space-between; align-items:baseline; gap:12px;}
+  .cake-info .name{font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600; color:var(--forest);}
+  .cake-info .price{color:var(--blush-deep); font-weight:600; white-space:nowrap;}
+  .cake-info .desc{color:var(--ink-soft); font-size:0.95rem; margin-top:6px;}
 
   /* HOW IT WORKS */
   section.steps{padding:80px 24px; max-width:960px; margin:0 auto; border-bottom:1px solid var(--line);}
   section.steps h2{font-size:2rem; margin-bottom:48px;}
   .step-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
-  .step{border-top:2px solid var(--rose); padding-top:16px;}
-  .step .num{font-family:'Fraunces', serif; font-style:italic; color:var(--gold); font-size:1.1rem;}
+  .step{border-top:2px solid var(--blush); padding-top:16px;}
+  .step .num{display:flex; align-items:center; gap:6px; color:var(--moss-deep); font-family:'Fraunces', serif; font-style:italic; font-size:1.05rem;}
+  .step .num svg{width:15px; height:15px;}
   .step h3{font-size:1.1rem; margin:8px 0 8px; font-weight:600;}
-  .step p{color:#B9A48D; font-size:0.95rem;}
+  .step p{color:var(--ink-soft); font-size:0.95rem;}
 
   /* ORDER FORM SECTION */
   section.order{padding:80px 24px; max-width:960px; margin:0 auto;}
   section.order h2{font-size:2rem; margin-bottom:12px;}
-  section.order p{color:#B9A48D; max-width:52ch; margin-bottom:36px;}
+  section.order p{color:var(--ink-soft); max-width:52ch; margin-bottom:36px;}
   .form-embed{
-    background:var(--espresso-light); border:1px solid var(--line);
-    border-radius:4px; overflow:hidden; min-height:400px;
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:14px; overflow:hidden; min-height:400px;
   }
   .form-embed iframe{width:100%; border:none; display:block; min-height:600px;}
-  .form-fallback{
-    padding:48px 24px; text-align:center; color:#B9A48D;
-  }
 
   footer{
-    padding:48px 24px 64px; max-width:960px; margin:0 auto;
-    border-top:1px solid var(--line); color:#8A7460; font-size:0.9rem;
+    padding:40px 24px 64px; max-width:960px; margin:0 auto;
+    color:var(--ink-soft); font-size:0.9rem;
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
   }
-  footer a{text-decoration:underline;}
+  footer a{text-decoration:underline; color:var(--forest);}
 
   @media (max-width:680px){
     .step-grid{grid-template-columns:1fr;}
-    .menu-item{flex-direction:column; gap:4px;}
+    .cake-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 
+<!-- Reusable ginkgo leaf icon -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="ginkgo" viewBox="0 0 100 100">
+    <path fill="currentColor" d="M50 8c14 10 26 24 30 42 2 10-2 20-10 26-6 4-14 2-16-4-1-3-1-6 0-9 1-16-2-32-4-46-1 16-4 32-4 46 1 3 1 6 0 9-2 6-10 8-16 4-8-6-12-16-10-26 4-18 16-32 30-42z M50 62v30" stroke="currentColor" stroke-width="2" fill-rule="evenodd"/>
+  </symbol>
+</svg>
+
 <nav>
-  <div class="brand">Milk <em>&amp;</em> Crumb</div>
+  <div class="brand">
+    <span class="word">Heritage House</span>
+    <svg viewBox="0 0 200 20" fill="none"><path d="M4 8 C40 -4, 70 18, 100 8 S 160 -2, 196 8" stroke="var(--blush)" stroke-width="2.5" stroke-linecap="round"/></svg>
+  </div>
   <a class="cta" href="#order">Order a cake</a>
 </nav>
 
 <header class="hero">
-  <div class="kicker">Home-baked in Singapore · Made to Order · Self collection</div>
-  <h1>Small-batch cakes, made <i>slowly</i>, by hand.</h1>
-  <p class="lede">Every cake is baked to order in small batches. Pick a flavour, tell us the date, and we'll have it ready for you.</p>
-  <div class="hero-actions">
-    <a class="btn-primary" href="#order">Place an order</a>
-    <a class="btn-secondary" href="#menu">See the menu</a>
+  <svg class="bg-leaf leaf" style="color:var(--moss)"><use href="#ginkgo"/></svg>
+  <div class="inner">
+    <div class="kicker">Home-baked in Singapore · Made to Order · Self collection</div>
+    <h1>Small-batch cakes, made <i>slowly</i>, in a garden kitchen.</h1>
+    <p class="lede">Every cake is baked to order in small batches. Pick a flavour, tell us the date, and we'll have it ready for you.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#order">Place an order</a>
+      <a class="btn-secondary" href="#menu">See the menu</a>
+    </div>
   </div>
 </header>
 
 <section class="menu" id="menu">
-  <h2>This month's flavours</h2>
-  <p class="sub">Update this list every month — availability changes with what's in season.</p>
-  <div class="menu-list">
-    <div class="menu-item">
-      <div>
-        <div class="name">Black Saseme Chiffon, 黒ゴマ.</div>
-        <div class="desc">Fluffy, Nutty, Japanese Black Saseme </div>
+  <div class="head">
+    <h2>This month's flavours</h2>
+    <p class="sub">Update this list every month — availability changes with what's in season.</p>
+  </div>
+
+  <div class="menu-category">
+    <svg class="leaf" style="color:var(--moss)"><use href="#ginkgo"/></svg>
+    Seasonal
+  </div>
+  <div class="cake-grid">
+    <div class="cake-card">
+      <div class="cake-photo"><svg><use href="#ginkgo"/></svg></div>
+      <div class="cake-info">
+        <div class="top">
+          <div class="name">Black Sesame Chiffon, 黒ゴマ</div>
+          <div class="price">$35</div>
+        </div>
+        <div class="desc">Fluffy, nutty, Japanese black sesame.</div>
       </div>
-      <div class="price">$35"</div>
     </div>
-  <h2>Classic</h2>
-    <div class="menu-item">
-      <div>
-        <div class="name">OG Pandan Chiffon</div>
-        <div class="desc">Pandan, Coconut Cream</div>
+  </div>
+
+  <div class="menu-category">
+    <svg class="leaf" style="color:var(--moss)"><use href="#ginkgo"/></svg>
+    Classic
+  </div>
+  <div class="cake-grid">
+    <div class="cake-card">
+      <div class="cake-photo"><svg><use href="#ginkgo"/></svg></div>
+      <div class="cake-info">
+        <div class="top">
+          <div class="name">OG Pandan Chiffon</div>
+          <div class="price">$35</div>
+        </div>
+        <div class="desc">Pandan, coconut cream.</div>
       </div>
-      <div class="price">$35"</div>
     </div>
   </div>
 </section>
@@ -167,17 +234,17 @@
   <h2>How ordering works</h2>
   <div class="step-grid">
     <div class="step">
-      <div class="num">01</div>
+      <div class="num"><svg class="leaf"><use href="#ginkgo"/></svg> One</div>
       <h3>Fill in the order form</h3>
       <p>Pick your flavour, size, and the date you need it by. Takes about a minute.</p>
     </div>
     <div class="step">
-      <div class="num">02</div>
+      <div class="num"><svg class="leaf"><use href="#ginkgo"/></svg> Two</div>
       <h3>We confirm by WhatsApp</h3>
       <p>You'll hear back within a day to confirm availability, price, and payment via PayNow.</p>
     </div>
     <div class="step">
-      <div class="num">03</div>
+      <div class="num"><svg class="leaf"><use href="#ginkgo"/></svg> Three</div>
       <h3>Collect or get it delivered</h3>
       <p>Self-collect from our kitchen, or opt for islandwide delivery on your chosen date.</p>
     </div>
@@ -201,7 +268,7 @@
 </section>
 
 <footer>
-  <div>© 2026 Milk &amp; Crumb, Singapore</div>
+  <div>© 2026 Heritage House, Singapore</div>
   <div>WhatsApp <a href="https://wa.me/6500000000">+65 XXXX XXXX</a> · <a href="mailto:hello@example.com">hello@example.com</a></div>
 </footer>
 
